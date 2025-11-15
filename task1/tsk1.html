@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<div class="main-block">
+    <h2>Test</h2>
+    <div class="wrapper">
+        <div class="input-fields">
+            <div class="div-err" id="divErrMsg">
+                <p class="p-err" id="pErrMsg"></p>
+            </div>
+            <p class="text">Name/Value Pair</p>
+            <div class ="div-name-value">
+                <label><input type="text" class="name-value" id="nameValue" placeholder="Name=Value"></label>
+            </div>
+            <p class="text">Name/Value Pair List</p>
+            <div class="name-value-list" id="nameValueList">
+<!--                <label><select multiple class="sf" id="df"></select></label>-->
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="add" id="addValue">Add</button>
+            <button class="sort-by-name" id="sortByName">Sort by Name</button>
+            <button class="sort-by-value" id="sortByValue">Sort By Value</button>
+            <button class="delete" id="dlt">Delete</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
