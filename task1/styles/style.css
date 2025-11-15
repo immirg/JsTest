@@ -26,19 +26,15 @@ h2, button {
 .name-value {
     width: 370px;
     height: 20px;
-    /*position: relative;*/
 }
 .name-value-list {
     width: 375px;
-    height: 360px;
+    height: 330px;
 }
 .name-value, .name-value-list {
     border: 1px solid rgba(191, 189, 189, 0.9);
     border-radius: 3px;
     margin-bottom: 20px;
-}
-.div-name-value {
-    /*position: relative;*/
 }
 p {
     color: #787777;
@@ -51,7 +47,7 @@ p {
 .buttons {
     display: flex;
     flex-direction: column;
-    margin: 25px 40px auto 35px;
+    margin: 27px 40px auto 35px;
 }
 .add {
     margin-bottom: 45px;
@@ -69,7 +65,7 @@ p {
 /*------------------error pop-up-----------------*/
 .div-err {
     position: absolute;
-    bottom: 465px;
+    bottom: 430px;
     left: 110px;
     display: none;
     max-width: 200px;

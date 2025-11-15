@@ -1,0 +1,38 @@
+@media screen and (max-width: 480px) {
+    body {
+        min-width: 290px;
+    }
+    .main-block {
+        padding: 20px 20px 20px 30px;
+    }
+    .name-value {
+        width: 220px;
+    }
+    .name-value-list {
+        width: 225px;
+        height: 200px;
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+    }
+    .sort-by-name {
+    }
+    .add, .sort-by-name, .sort-by-value, .delete {
+        margin: 5px;
+    }
+    .sort-by-value {
+        order: 1;
+    }
+    .delete {
+        order: 0;
+    }
+    .div-err {
+        bottom: 360px;
+    }
+}
