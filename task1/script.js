@@ -1,7 +1,5 @@
 let nameValue;
 const regex = /^[a-zA-Z0-9]+$/;
-const letters = /[a-zA-Z]/;
-const dlt = document.getElementById("dlt");
 let pErrMsg = document.getElementById("pErrMsg");
 const addValue = document.getElementById("addValue");
 const divErrMsg = document.getElementById("divErrMsg");
@@ -9,55 +7,62 @@ const sortByName = document.getElementById("sortByName");
 const sortByValue = document.getElementById("sortByValue");
 const deleteValues = document.getElementById("deleteValues");
 
-addValue.addEventListener("click", (e) => {
-    nameValue = document.getElementById("nameValue").value;
+addValue.addEventListener("click", () => {
+    nameValue = document.getElementById("nameValue").value.trim();
     checkValue();
 });
 
-sortByName.addEventListener("click", (e) => {
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        nameValue = document.getElementById("nameValue").value.trim();
+        checkValue();
+    }
+});
+
+sortByName.addEventListener("click", () => {
     sort(0);
 });
 
-sortByValue.addEventListener("click", (e) => {
+sortByValue.addEventListener("click", () => {
     sort(1);
 });
 
-deleteValues.addEventListener("click", (e) => {
+deleteValues.addEventListener("click", () => {
     deleteValueFromList();
 })
 
-function hiddeErrMsg() {
+function hideErrMsg() {
     document.addEventListener('click', function hide ()  {
         divErrMsg.style.display = "none";
         document.removeEventListener('click', hide);
     });
 }
 
-function errorMassage(message) {
+function errorMessage(message) {
     pErrMsg.innerText = message;
     divErrMsg.style.display = 'block';
     console.log(message);
     setTimeout(function () {
-        hiddeErrMsg()
+        hideErrMsg()
         }, 100);
 }
 
 function checkValue() {
     if (!nameValue) {
-        return errorMassage("Please enter a value");
+        return errorMessage("Please enter a value");
     }
     if (!nameValue.includes('=')){
-        return errorMassage("The key and value must be separated by an equal sign");
+        return errorMessage("The key and value must be separated by an equal sign");
     }
-    let splitValue = nameValue.split("=");
+    let splitValue = nameValue.split('=');
+    if (splitValue.length !== 2) {
+        return errorMessage("there is more than one equal sign");
+    }
     if (!splitValue[0] || !splitValue[1]) {
-        return errorMassage("Missing key or value");
+        return errorMessage("Missing key or value");
     }
-    if(!letters.test(splitValue[0][0])) {
-        return errorMassage('The first character of the key must be a letter');
-    }
-    if (!regex.test(splitValue[0]) || !regex.test(splitValue[1])) {
-        return errorMassage("The key and value can only consist of numbers and letters");
+    if (!regex.test((splitValue[0]).trim()) || !regex.test((splitValue[1]).trim())) {
+        return errorMessage("The key and value can only consist of numbers and letters");
     }
     addValueToList()
 }
