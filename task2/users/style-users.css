@@ -1,0 +1,31 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    background: #6a4c4c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    height: 30px;
+    width: 90px;
+}
+p {
+    font-size: 25px;
+}
+.wrapper {
+    display : flex;
+    flex-wrap: wrap;
+    width: 80%;
+    min-width: 900px;
+    background: #fff;
+}
+.user-block {
+    border: 1px solid black;
+    padding: 15px;
+    width: calc(50% - 33px);
+}

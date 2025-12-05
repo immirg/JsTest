@@ -8,14 +8,17 @@ const sortByValue = document.getElementById("sortByValue");
 const deleteValues = document.getElementById("deleteValues");
 
 addValue.addEventListener("click", () => {
+    // debugger
     nameValue = document.getElementById("nameValue").value.trim();
     checkValue();
+    document.getElementById("nameValue").value = '';
 });
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         nameValue = document.getElementById("nameValue").value.trim();
         checkValue();
+        document.getElementById("nameValue").value = '';
     }
 });
 
@@ -80,19 +83,22 @@ function sort(sortBy) {
     let paragraphs = Array.from(
         nameValueList.querySelectorAll('option')
     );
-    for (let i = 0; i < paragraphs.length - 1; i++) {
-        for (let j = i+1; j < paragraphs.length; j++) {
-            const elem1 = paragraphs[i].textContent.split('=')[sortBy];
-            const elem2 = paragraphs[j].textContent.split('=')[sortBy];
+    const sortedList = paragraphs.sort((a, b) => {
+        const valueA = a.textContent.split('=')[sortBy];
+        const valueB = b.textContent.split('=')[sortBy];
 
-            if (elem1 > elem2) {
-                const temp = paragraphs[i];
-                paragraphs[i] = paragraphs[j];
-                paragraphs[j] = temp;
-            }
+        const numA = Number(valueA);
+        const numB = Number(valueB);
+        const isNumA = !Number.isNaN(numA);
+        const isNumB = !Number.isNaN(numB);
+
+        if (isNumA && isNumB) {
+            return numA - numB;
         }
-    }
-    paragraphs.forEach((p) => {nameValueList.appendChild(p)});
+        return valueA.localeCompare(valueB)
+    });
+
+    sortedList.forEach((p) => {nameValueList.appendChild(p)});
 }
 
 function deleteValueFromList() {

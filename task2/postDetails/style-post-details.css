@@ -1,0 +1,41 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #4b6c49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-width: 1400px;
+}
+.wrapper {
+    background: #d8d8d8;
+    border: 1px black solid;
+    height: 800px;
+    width: 90%;
+}
+p {
+    margin-bottom: 0;
+}
+.div-comment {
+    background: #d8d8d8;
+    padding: 0 10px 5px 10px;
+    margin-bottom: 17px;
+    width: 22%;
+    border: 1px solid green;
+}
+p {
+    margin-top: 5px;
+}
+.div-comments {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+.post-div{
+    padding: 60px 35px;
+}

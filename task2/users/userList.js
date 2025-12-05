@@ -1,4 +1,4 @@
-// import {userCard} from "./userDetails.js";
+// import {userCard} from "../userDetails/userDetails.js";
 const divWrapper = document.getElementById('wrapper');
 
 async function allUsers() {
@@ -11,7 +11,7 @@ async function allUsers() {
         const button = document.createElement("button");
         const a = document.createElement("a");
 
-        a.href = `user-details.html?id=${id}`;
+        a.href = `../userDetails/user-details.html?id=${id}`;
         p.innerText = `id: ${id} - ${name}`;
         button.innerText = 'details';
         button.id = `button_${id}`;
